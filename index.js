@@ -8,11 +8,23 @@ const {UserModel}= require("./models/UserModel");
 const { authentication } = require("./middlewares/authentication");
 const { BMIModel } = require("./models/BMIModel");
 require("dotenv").config();
+
+
+
+
+
+const PersonalRouter = require("./Routes/personal.routes")
+
+
+
+
 const app=express();
 
 app.use(cors());
 
 app.use(express.json());
+
+app.use("/register", PersonalRouter)
 
 app.get("/",(req,res)=>{
     res.send("HomePage");
