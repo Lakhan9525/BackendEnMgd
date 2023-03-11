@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
-const addressSchema = new mongoose.Schema({
-  address_line_1: { type: String, required: true },
-  address_line_2: { type: String },
-  city: { type: String, required: true },
-  state: { type: String, required: true },
-  zipcode: { type: String, required: true },
-  country: { type: String, required: true }
-});
+// const addressSchema = new mongoose.Schema({
+//   address_line_1: { type: String, required: true },
+//   address_line_2: { type: String },
+//   city: { type: String, required: true },
+//   state: { type: String, required: true },
+//   zipcode: { type: String, required: true },
+//   country: { type: String, required: true }
+// });
 
 const personalSchema = new mongoose.Schema({
   account_id: { type: String, required: true },
@@ -17,7 +17,13 @@ const personalSchema = new mongoose.Schema({
   cell_phone: { type: String, required: true },
   home_phone: { type: String },
   photo: { type: String },
-  address: { type: addressSchema, required: true }
+  address_line_1: { type: String, required: true },
+  address_line_2: { type: String },
+  city: { type: String, required: true },
+  state: { type: String, required: true },
+  zipcode: { type: String, required: true },
+  country: { type: String, required: true }
+  
 });
 
 const UserInfo = mongoose.model('UserInfo', personalSchema);
