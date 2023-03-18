@@ -14,6 +14,7 @@ require("dotenv").config();
 
 
 const PersonalRouter = require("./Routes/personal.routes")
+const WorkRouter=require("./Routes/Work.routes")
 
 
 
@@ -25,6 +26,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/register", PersonalRouter)
+app.use("/work", WorkRouter)
 
 app.get("/",(req,res)=>{
     res.send("HomePage");
