@@ -3,6 +3,8 @@ const express=require("express");
 const bcrypt = require('bcrypt');
 const jwt=require("jsonwebtoken");
 const cors=require("cors");
+const authRoute =require("./Routes/auth")
+
 const {connection} =require("./config/db");
 const {UserModel}= require("./models/UserModel");
 const { authentication } = require("./middlewares/authentication");
@@ -14,12 +16,36 @@ require("dotenv").config();
 
 
 const PersonalRouter = require("./Routes/personal.routes")
-const WorkRouter=require("./Routes/Work.routes")
+const WorkRouter=require("./Routes/Work.routes");
+
+const passportSetup = require("./passport")
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 
 
 
 
 const app=express();
+
+
+app.use(
+    cookieSession({name:"session",keys:["abc"],maxAge: 24 * 60 * 60 * 100})
+
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+
+
+var corsOptions = {
+    origin: "http://localhost:3000"
+  };
+  
+  app.use(cors(corsOptions));
+
 
 app.use(cors());
 
@@ -27,6 +53,8 @@ app.use(express.json());
 
 app.use("/register", PersonalRouter)
 app.use("/work", WorkRouter)
+//app.use("/auth",authRoute)
+app.use("/auth",authRoute)
 
 app.get("/",(req,res)=>{
     res.send("HomePage");
@@ -148,3 +176,8 @@ app.listen(8001,async()=>{
     }
     console.log("Listening to Port 8001");
 })
+
+
+
+// clint id:182723763788-fpdjirmd660l8lfd410adi8humefhce3.apps.googleusercontent.com
+//clint server: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
