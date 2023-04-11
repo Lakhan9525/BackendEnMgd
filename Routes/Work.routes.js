@@ -52,6 +52,18 @@ router.patch('/:id', async (req, res) => {
       {
          first_name:first_name,
           last_name:last_name, 
+          title: title,
+    company_name:company_name ,
+    city:city,
+     state: state,
+     country:country,
+     start_month:start_month,
+    end_month:end_month,
+    end_year:end_year,
+    job_summary:job_summary,
+    skills:skills,
+   currently_working:currently_working
+
           },
              {new:true}
 
