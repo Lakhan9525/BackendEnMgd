@@ -11,8 +11,10 @@ require("dotenv").config();
 
 
 //const REGISTER_URL = process.env.REGISTER_URL || `${CLIENT_URL}/register`;
-const CLIENT_URL = process.env.CLIENT_URL;
-const REGISTER_URL = process.env.REGISTER_URL;
+// const CLIENT_URL = process.env.CLIENT_URL;
+// const REGISTER_URL = process.env.REGISTER_URL;
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
+const REGISTER_URL = process.env.REGISTER_URL || `${CLIENT_URL}/register`;
 
 
 
