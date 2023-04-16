@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const passport = require("passport");
+require("dotenv").config();
 
 //const CLIENT_URL = "http://localhost:3000/";
 //const CLT_URL = "https://magical-dolphin-b8849e.netlify.app"
