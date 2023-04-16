@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const CLIENT_URL = "http://localhost:3000/";
+//const CLIENT_URL = "http://localhost:3000/";
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
 
 
 
@@ -35,7 +36,9 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "https://magical-dolphin-b8849e.netlify.app/register",
+    //successRedirect: "http://localhost:3000/register",
+    successRedirect: `${CLIENT_URL}/register`,
+
     failureRedirect: "/login/failed",
   })
 );
