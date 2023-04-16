@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require("passport");
 
 //const CLIENT_URL = "http://localhost:3000/";
-const CLT_URL= "https://magical-dolphin-b8849e.netlify.app/"
+const CLT_URL = "https://magical-dolphin-b8849e.netlify.app/"
 
 const CLIENT_URL = process.env.CLT_URL || "http://localhost:3000";
 
@@ -39,7 +39,7 @@ router.get(
   "/google/callback",
   passport.authenticate("google", {
     //successRedirect: "http://localhost:3000/register",
-    successRedirect: `${CLIENT_URL}/register`,
+    successRedirect: `${CLT_URL}/register`,
 
     failureRedirect: "/login/failed",
   })
