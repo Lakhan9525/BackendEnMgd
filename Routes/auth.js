@@ -35,7 +35,7 @@ router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/register",
+    successRedirect: "https://magical-dolphin-b8849e.netlify.app/register",
     failureRedirect: "/login/failed",
   })
 );
