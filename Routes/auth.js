@@ -5,6 +5,8 @@ const passport = require("passport");
 //const CLT_URL = "https://magical-dolphin-b8849e.netlify.app"
 
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
+
+
 const REGISTER_URL = process.env.REGISTER_URL || `${CLIENT_URL}/register`;
 
 
