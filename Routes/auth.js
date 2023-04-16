@@ -7,10 +7,12 @@ require("dotenv").config();
 //const CLT_URL = "https://magical-dolphin-b8849e.netlify.app"
 
 //const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
-CLIENT_URL= "http://localhost:3000" || "https://magical-dolphin-b8849e.netlify.app";
+//CLIENT_URL= "http://localhost:3000" || "https://magical-dolphin-b8849e.netlify.app";
 
 
-const REGISTER_URL = process.env.REGISTER_URL || `${CLIENT_URL}/register`;
+//const REGISTER_URL = process.env.REGISTER_URL || `${CLIENT_URL}/register`;
+const CLIENT_URL = process.env.CLIENT_URL;
+const REGISTER_URL = process.env.REGISTER_URL;
 
 
 
