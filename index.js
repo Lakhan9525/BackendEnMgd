@@ -41,7 +41,8 @@ app.use(passport.session());
 
 
 var corsOptions = {
-    origin: "http://localhost:3000"
+    origin: "http://localhost:3000",
+    CLIENT_URL:"https://peaceful-pavlova-c79307.netlify.app"
   };
   
   app.use(cors(corsOptions));
