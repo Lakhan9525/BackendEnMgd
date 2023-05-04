@@ -3,7 +3,8 @@ const express=require("express");
 const bcrypt = require('bcrypt');
 const jwt=require("jsonwebtoken");
 const cors=require("cors");
-const authRoute =require("./Routes/auth")
+// const authRoute =require("./Routes/auth")
+const authRoute=require("./Routes/auth")
 
 const {connection} =require("./config/db");
 const {UserModel}= require("./models/UserModel");
@@ -20,9 +21,10 @@ const WorkRouter=require("./Routes/Work.routes");
 const EducationRouter =require("./Routes/Education.routes");
 
 
-const passportSetup = require("./passport")
+
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const passportSetup=require("./passport")
 
 
 
@@ -31,7 +33,7 @@ const app=express();
 
 
 app.use(
-    cookieSession({name:"session",keys:["abc"],maxAge: 24 * 60 * 60 * 100})
+    cookieSession({name:"session",keys:["lakhan"],maxAge: 24 * 60 * 60 * 100})
 
 );
 app.use(passport.initialize());
@@ -42,14 +44,15 @@ app.use(passport.session());
 
 
 
-var corsOptions = {
-    origin: "http://localhost:3000"
-  };
-  
-  app.use(cors(corsOptions));
+app.use(
+    cors({
+      origin: "http://localhost:3000",
+      methods: "GET,POST,PUT,DELETE",
+      credentials: true,
+    })
+  );
 
 
-app.use(cors());
 
 app.use(express.json());
 
