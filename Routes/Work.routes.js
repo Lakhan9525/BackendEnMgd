@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 
 
 router.patch('/:id', async (req, res) => {
-  const { first_name, last_name} =req.body
+  const { first_name, last_name,company_name, city,state,country,start_month,end_month,job_summary,skills,currently_working} =req.body
   const {id}=req.params;
 
   try {

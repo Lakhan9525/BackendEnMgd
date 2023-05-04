@@ -17,6 +17,8 @@ require("dotenv").config();
 
 const PersonalRouter = require("./Routes/personal.routes")
 const WorkRouter=require("./Routes/Work.routes");
+const EducationRouter =require("./Routes/Education.routes");
+
 
 const passportSetup = require("./passport")
 const cookieSession = require("cookie-session");
@@ -53,6 +55,7 @@ app.use(express.json());
 
 app.use("/register", PersonalRouter)
 app.use("/work", WorkRouter)
+app.use("/education",EducationRouter)
 //app.use("/auth",authRoute)
 app.use("/auth",authRoute)
 
